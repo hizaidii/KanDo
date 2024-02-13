@@ -1,0 +1,153 @@
+/* --------- INDEX PAGE --------- */
+body {
+  background-image: url("../assets/index-bg1.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.IndexLogo img {
+  width: 120px;
+  margin: 42px;
+}
+
+.indexWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  margin: 60px 140px;
+}
+
+/* --------- blurb --------- */
+.blurbContainer {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.blurbContainer h1 {
+  font: var(--font-display);
+}
+
+.blurbContainer p {
+  font: var(--font-body);
+  line-height: 20px;
+}
+
+#kanDo {
+  font: var(--font-display);
+  color: var(--text-purple);
+}
+
+.blurbContainer ul li {
+  padding: 8px 0;
+}
+
+/* --------- image container --------- */
+.mobileHero {
+  display: none;
+}
+
+.imageContainer img {
+  width: 280px;
+  margin-left: 16px;
+}
+
+/* Keyframes for up-and-down floating animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(-10px); /* Start and end at the original position */
+  }
+  50% {
+    transform: translateY(50px); /* Move up by 20 pixels at the halfway point */
+  }
+}
+
+/* Apply the animation to the astronaut image */
+.imageContainer {
+  animation: float 7s ease-in-out infinite; /* Adjust time and easing as needed */
+}
+
+/* --------- form container --------- */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.signin-btn {
+  width: 280px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.signup-form-title {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.signupForm div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.signupContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.or {
+  position: relative;
+  top: 0px;
+  background-color: var(--bg-dark);
+  padding: 0 8px;
+  /* color: rgb(70, 70, 70); */
+  color: var(--neutral700);
+}
+
+.social-btn {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  font: var(--font-body);
+}
+
+/* Watermark */
+body {
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.indexWatermark {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  width: 100%;
+
+  text-align: center;
+  margin-top: 56px;
+}
+.indexWatermark p {
+  color: var(--light-grey-purple);
+  opacity: 0.6;
+  font-size: 13px;
+}

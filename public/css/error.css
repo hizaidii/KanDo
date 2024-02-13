@@ -1,0 +1,68 @@
+body {
+  background-image: url("../assets/index-bg1.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: relative;
+}
+
+.IndexLogo img {
+  width: 120px;
+  margin: 42px;
+}
+
+.errorWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  align-items: center;
+  justify-content: center;
+  /* width: 70%; */
+  margin: 36px;
+}
+
+.errorWrapper img {
+  width: 400px;
+}
+
+.errorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 600px;
+}
+.errorWrapper h1 {
+  font: var(--font-display);
+  color: var(--text-purple);
+}
+
+.errorWrapper h3,
+.errorWrapper h6 {
+  font-size: 16px;
+  color: var(--neutral500);
+}
+
+.errorWrapper button {
+  width: 200px;
+}
+
+/* Watermark */
+body {
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.indexWatermark {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  width: 100%;
+
+  text-align: center;
+  margin-top: 56px;
+}
+.indexWatermark p {
+  color: var(--light-grey-purple);
+  opacity: 0.6;
+  font-size: 13px;
+}

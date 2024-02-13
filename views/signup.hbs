@@ -1,0 +1,68 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kan.Do</title>
+    <link rel="shortcut icon" href="./assets/icon-purple-light.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="/css/mediaQueries.css" />
+  </head>
+  <body>
+
+    <div class="IndexLogo">
+      <img src="./assets/logo.png" alt="Kan.Do" />
+    </div>
+
+    <div class="IndexWrapper">
+      <div class="blurbContainer">
+
+        <h1>With <span id="kanDo">Kan.Do</span>,<br /> You Can Do it too!</h1>
+        <p>Kan.Do transforms your goals into achievements with an intuitive kanban board app designed for everyone. From planning your next big project to managing daily tasks, Kan.Do makes productivity accessible and fun.</p>
+        <ul>
+          <li><span class="bold">Customize Your Workflow: </span>Tailor your boards to fit your unique needs.</li>
+          <li><span class="bold">Visualize Progress:</span> Easily move tasks from 'To-Do' to 'Done.'</li>
+          <li><span class="bold">Access Anywhere:</span> Your productivity hub goes where you go.</li>
+        </ul>
+
+        <p>Join Kan.Do today and start turning your can’ts into cans and your dreams into plans. <span class="text-pink">It’s free for life!</span> </p>
+        <h3 class="bold text-16">Dive In. Do More. Kan.Do.</h3>
+
+      </div>
+
+      <div class="imageContainer">
+        <img class="defaultHero" src="./assets/landing page astro full res.png" alt="Kanban Board" />
+        <img class="mobileHero" src="./assets/astro-mobile-landing.png" alt="Kanban Board" />
+      </div>
+
+      <div class="formContainer">
+
+        <h2 class="formTitle bold text-16">Great! Let’s sign up. <span class="text-pink bold text-16"> It's free!</span></h2>
+
+        <form class="loginForm signupForm" action="/signup" method="POST">
+
+          <div>
+            <h3>Let's start with your name</h3>
+            <input class="input" type="text" name="name" placeholder="Enter your name" required />
+          </div>
+          <div>
+            <h3>Now, select a unique username</h3>
+            <input class="input" type="text" name="username" placeholder="Enter a username" required />
+          </div>
+          <div>
+            <h3>Finally, choose a password</h3>
+            <input class="input" type="password" name="password" placeholder="Select a Password" required />
+          </div>
+          <button class="cta-btn signin-btn" type="submit">Sign up</button>
+
+        </form>
+        <h3>Already have an account? <a class="text-16 bold text-purple" href="/">Sign in here!</a></h3>
+
+      </div>
+
+    </div>
+
+    <div class="indexWatermark"><p>Made with ♥ by Husain Zaidi</p></div>
+
+  </body>
+</html>

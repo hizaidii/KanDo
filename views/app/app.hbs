@@ -1,0 +1,162 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kan.Do</title>
+    <link rel="shortcut icon" href="/assets/icon-purple-light.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/mediaQueries.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    {{> sidebar user=user}}
+
+    <div class="appWrapper">
+
+      <div class="topBar">
+        <div class="nameContainer"><span class="greeting">Hello, </span><span class="name">{{firstName}}</span></div>
+
+        <div class="profileContainer">
+
+          {{#if user.Google_Photo}}
+            <div class="profilePic"><img src="{{user.Google_Photo}}" alt="Profile picture" /></div>
+          {{else}}
+            <div class="profilePic"><img src="./assets/profile-pic.png" alt="Profile picture" /></div>
+          {{/if}}
+
+
+          <div class="profileName">
+            <h3>{{firstName}}</h3>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 1.5L6 6.5L11 1.5" stroke="#939095" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div class="profileDropdown">
+              <a href="/app/logout">Logout</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <h3 id="currentDateTime"></h3>
+
+      <div class="widgets-container">
+
+        <div class="metrics-container light-glass">
+          {{#isEqual totalTasks 0}}
+            <h3 class="title" style="font-size: 20px;">Welcome to Kan.Do!</h3>
+            <h3 class="subtext" style="font-size: 14px; color: #f9f9f9; line-height: 22px;">Boost your productivity with our fun gamified experience. Start by creating tasks to build your productivity score. We've created your 'First Board' for you. Let's get started!"</h3>
+          {{else}}
+            <h3 class="title">Productivity Tracker</h3>
+            <h3 class="subtext">Tasks marked as ‘complete’ are counted towards completed tasks. Tasks that are visible on board do not count as complete.</h3>
+          {{/isEqual}}
+
+
+          <div class="metrics">
+            <div class="metric">
+              <h3 id="taskCompletionRateMetric" class="metric-value text-pink">{{completionRate}}%</h3>
+              <h3 class="metric-title">Task Completion Rate</h3>
+
+            </div>
+            <div class="metric">
+
+              <h3 id="taskCreatedMetric" class="metric-value text-purple">{{totalTasks}}</h3>
+              <h3 class="metric-title">Tasks Created</h3>
+            </div>
+            <div class="metric">
+
+              <h3 id="taskCompletedMetric" class="metric-value text-purple">{{deletedTasks}}</h3>
+              <h3 class="metric-title">Tasks Completed</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="graph-container light-glass">
+          <div id="chartDOM" style="width: 250px; height:212px;">
+
+          </div>
+        </div>
+
+      </div>
+
+      <img src="/assets/astro-on-moon.png" class="solo-astro" alt="Astro Image">
+
+
+    </div>
+
+
+    {{!-- <div class="astro-img-container">
+      <img src="./assets/app-astro-big.png" alt="Kanban Board" />
+    </div> --}}
+
+
+
+    <script src="/js/appScript.js"></script>
+
+    
+<script type="text/javascript">
+  var chartDom = document.getElementById('chartDOM');
+  var myChart = echarts.init(chartDom);
+  var option = {
+    color: ['#ff62c0', '#a162ff'],
+    tooltip: {
+      trigger: 'item'
+    },
+    legend: {
+      bottom: '0',
+      left: 'center',
+      textStyle: {color: '#cccccc'}
+    },
+    tooltip: {
+      backgroundColor: '#0c0d1e',
+      borderRadius: 8,
+      textStyle: {
+        color: '#b2b2b3',
+        }
+      },
+    series: [
+      {
+        name: 'Productivity Tracker',
+        type: 'pie',
+        radius: ['50%', '70%'],
+        center: ['50%', '40%'],
+        avoidLabelOverlap: false,
+        itemStyle: {
+          borderRadius: 6,
+          borderColor: '#191b2e',
+          borderWidth: 3
+        },
+        label: {
+          show: false,
+          position: 'center'
+        },
+        emphasis: {
+          label: {
+            show: false,
+            fontSize: '16',
+            fontWeight: 'bold'
+          }
+        },
+        labelLine: {
+          show: false
+        },
+        data: [
+          { value: {{currentTasks}}, name: 'Tasks Pending' },
+          { value: {{deletedTasks}}, name: 'Task Completed' },
+        ]
+      }
+    ]
+  };
+  
+  option && myChart.setOption(option);
+</script>
+
+<script src="/js/astroFollowFn.js"></script>
+
+  </body>
+</html>

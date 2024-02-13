@@ -1,0 +1,332 @@
+body {
+  /* padding-left: 260px; */
+  background-image: url("../assets/global-bg-7.5.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.boardContainer {
+  margin-left: 240px;
+}
+
+/* --------- top bar section --------- */
+
+.boardTopbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+}
+
+.boardTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.boardTitle h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--neutral100);
+}
+
+.boardTitle:hover {
+  cursor: pointer;
+}
+
+.boardTitleDropdown {
+  z-index: 2;
+  display: none;
+  position: absolute;
+  top: 38px;
+  right: 0;
+  background-color: var(--modal-bg);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.boardTitleDropdown a:last-child:hover {
+  color: var(--accent-pink);
+}
+.boardTitle:hover > .boardTitleDropdown {
+  display: block;
+}
+
+.topRight-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+/* ---------- SWIM LANES ----------- */
+.allSwimLanes {
+  display: flex;
+  flex-direction: row;
+  padding: 0 24px;
+  /* justify-content: space-around; */
+  gap: 24px;
+  width: 100%; /* Adjust the width as needed */
+  overflow-x: auto; /* Use 'scroll' to always show the scrollbar */
+  /* white-space: nowrap; */
+}
+
+.eachSwimLane-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eachSwimLane {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  margin-top: 24px;
+  width: 300px;
+  border-radius: 12px;
+  /* min-height: calc(100vh - 160px); */
+  height: calc(100vh - 160px);
+  overflow-y: auto;
+}
+
+.eachSwimlane-title-container {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.flex-spacer {
+  flex-grow: 1; /* Allows the spacer to grow and take up available space */
+}
+
+.swimlaneTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.swimlaneColor {
+  height: 18px;
+  width: 18px;
+  /* background-color: aquamarine; */
+  border-radius: 99em;
+}
+
+.swimlaneTitle h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--neutral100);
+}
+
+.swimlane-options-btn {
+  position: relative;
+  cursor: pointer;
+  flex-grow: 0;
+}
+
+.swimlane-options-btn:hover > .swimlaneDropdown {
+  display: block;
+}
+
+.swimlaneDropdown a:last-child:hover {
+  color: var(--accent-pink);
+}
+
+.swimlaneDropdown {
+  width: 140px;
+  z-index: 1;
+  display: none;
+  position: absolute;
+  top: 18px;
+  right: 0;
+  background-color: var(--modal-bg);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.addSwimlaneBtn {
+  margin-top: 40px;
+  border: none;
+  border-radius: 12px;
+  padding: 36px;
+  color: var(--text-purple);
+  flex-grow: 1;
+  background: rgba(27, 31, 56, 0.2);
+  min-width: 180px;
+  font-weight: 500;
+  height: calc(100vh - 160px);
+}
+
+.addSwimlaneBtn:hover {
+  border: 1px solid var(--primary-purple);
+  cursor: pointer;
+  background: rgba(27, 31, 56, 0.4);
+}
+
+/* ---------- TASKS ----------- */
+
+.taskCard {
+  border: 1px solid var(--dark-grey-purple);
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(27, 31, 56, 0.6);
+  cursor: grab;
+  /* cursor: pointer; */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.taskCard:hover {
+  /* background: rgba(27, 31, 56, 0.8); */
+  border: 1px solid var(--primary-purple);
+}
+
+.is-dragging {
+  scale: 1.05;
+  box-shadow: 0px 5px 40px rgba(111, 50, 230, 0.5);
+  /* cursor: grabbing; */
+  /* background: rgba(61, 68, 109, 0.25); */
+  background: rgba(27, 31, 56, 0.85);
+  border: 1px solid var(--primary-purple);
+  color: white;
+}
+
+.taskTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.titleContainer svg {
+  cursor: pointer;
+  stroke: #939095;
+}
+.titleContainer svg:hover {
+  stroke: greenyellow;
+}
+
+.title-SVG-wrapper:hover > .completeTooltip {
+  display: block;
+}
+
+.completeTooltip {
+  z-index: 1;
+  display: none;
+  position: absolute;
+  top: -28px;
+  left: 0;
+  background-color: black;
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.task-more-btn {
+  cursor: pointer;
+}
+
+.task-more-btn:hover > .taskDropdown {
+  display: block;
+}
+
+.taskDropdown {
+  width: 170px;
+  z-index: 3;
+  display: none;
+  position: absolute;
+  top: 33px;
+  right: 10px;
+  background-color: var(--modal-bg);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--dark-grey-purple);
+}
+
+.taskDropdown a:last-child:hover {
+  color: var(--accent-pink);
+}
+
+.titleContainer h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--neutral100);
+}
+
+.taskDescription {
+  font-size: 14px;
+  color: var(--neutral500);
+  font-weight: 400;
+}
+
+.taskDate {
+  font-size: 12px;
+  color: var(--neutral700);
+  /* color: var(--light-grey-purple); */
+  font-weight: 400;
+  margin-top: 16px;
+}
+
+/* ---------- CELEBRATION ----------- */
+/* style.css */
+@keyframes flyAcross {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes flyAndFade {
+  0% {
+    transform: translateX(-100%) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.75;
+  }
+  40% {
+    transform: translateX(30vw) translateY(-20vh) rotate(-10deg);
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-40vh) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+#unicorn {
+  position: fixed;
+  bottom: 20%;
+  font-size: 50px;
+  /* Adjust animation duration to 2s for quicker movement */
+  animation: flyAndFade 2.3s linear forwards; /* Use forwards to keep the element in the final state */
+  display: none; /* Hide by default */
+}

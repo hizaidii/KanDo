@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--neutral100);
+  font-size: 14px;
+  font-weight: 400;
+  box-sizing: border-box;
+  /* line-height: 20px; */
+}
+
+:root {
+  --primary-purple: #7953f6;
+  --accent-pink: #ff62c0;
+  --text-purple: #a162ff;
+  --light-grey-purple: #a197c4;
+  --dark-grey-purple: #34305a;
+  --bg-dark: #0c0d1e;
+  --black-purple: #05021f;
+  /* --bg-dark: #141628; */
+  --input-bg: #191b2e;
+  --input-border: #212339;
+  --modal-bg: #1b1f38;
+
+  --warning-pink: #cf1b87;
+  --neutral800: #514f52;
+  --neutral700: #737175;
+  --neutral600: #939095;
+  --neutral500: #b2b2b3;
+  --neutral400: #cccccc;
+  --neutral100: #f9f9f9;
+
+  --font-display: 700 48px Inter, sans-serif;
+  --font-heading: 700 18px Inter, sans-serif;
+  /* --font-subtext: 400 14px Inter, sans-serif; */
+  --font-body: 400 14px Inter, sans-serif;
+  --font-small-heading: 600 14px Inter, sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  /* width: 5px;
+  height: 8px;
+  background-color: #aaa; 
+  background: #6f6d6d; */
+}
+
+body {
+  background-color: var(--bg-dark);
+}
+
+/* GLOBAL STYLE CLASSES */
+.bold {
+  font-weight: 700;
+}
+
+.text-16 {
+  font-size: 16px;
+}
+
+.text-pink {
+  color: var(--accent-pink);
+}
+
+.text-purple {
+  color: var(--text-purple);
+}
+
+/* ------------ GLASS EFFECT ------------ */
+
+.light-glass {
+  background: rgba(61, 68, 109, 0.25);
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.default-glass {
+  background: rgba(27, 31, 56, 0.37);
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* ------------ INPUTS ------------ */
+
+.input {
+  width: 280px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.input::placeholder {
+  font: var(--font-body);
+  color: var(--neutral800);
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid var(--primary-purple);
+}
+
+.input-error {
+  border: 1px solid var(--accent-pink);
+}
+
+.statusColor {
+  background: none;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid var(--modal-bg);
+  width: 48px;
+  height: 48px;
+}
+
+/* ------------ BUTTONS ------------ */
+
+.cta-btn {
+  background-color: var(--primary-purple);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font: var(--font-small-heading);
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  background-color: var(--text-purple);
+}
+
+.btn-dark {
+  width: 280px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font: var(--font-small-heading);
+  cursor: pointer;
+}
+
+.btn-dark:hover {
+  background-color: var(--input-border);
+}
+
+.secondary-btn {
+  background-color: var(--input-bg);
+  border: 1px solid var(--dark-grey-purple);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font: var(--font-small-heading);
+  cursor: pointer;
+}
+
+.secondary-btn:hover {
+  border-color: var(--neutral100);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  /* text-decoration: underline; */
+  color: var(--text-purple);
+}
+
+/* ------------ MODALS ------------ */
+.modal {
+  margin: auto;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--modal-bg);
+  padding: 24px;
+  max-width: 400px;
+}
+
+.modalInsideWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.modalTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.modalTitle h3 {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.closeModal {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modalInputwithTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modalInputwithTitle p {
+  color: var(--neutral500);
+  font-size: 13px;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modalButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.modalButtons button {
+  width: 100%;
+}
+
+.cancelModalBtn {
+  border: 1px solid var(--neutral600);
+  color: var(--neutral600);
+}
+
+.cancelModalBtn:hover {
+  background: none;
+  border-color: var(--accent-pink);
+  color: var(--accent-pink);
+}
+
+.modalInputwithTitle select {
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: var(--warning-pink);
+}
+
+.delete-btn:hover {
+  background-color: var(--accent-pink);
+}
+
+.cancelGood:hover {
+  background: none;
+  border-color: var(--text-purple);
+  color: var(--text-purple);
+}
