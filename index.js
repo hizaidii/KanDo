@@ -14,6 +14,7 @@ const moment = require("moment");
 
 hbs.registerPartials(__dirname + "/views/partials");
 app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "views"));
 
 // Session middleware configuration
 app.use(
