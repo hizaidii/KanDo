@@ -11,7 +11,7 @@ var droidY = window.innerHeight - 100;
 var mouseX = 0;
 var mouseY = 0;
 var speed = 0.5;
-var accelMod = 0.5;
+var accelMod = 2;
 
 function movement() {
   // Calculate distance between mouse and current position
