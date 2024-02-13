@@ -84,8 +84,15 @@ hbs.registerHelper("isEqual", function (a, b, options) {
 });
 
 // --> Database Connection
-mongoose.connect(process.env.MONGO_URL).then(() => {
-  app.listen(PORT, () => {
-    console.log(`http://localhost:` + PORT);
+mongoose
+  .connect(process.env.DB_URL)
+  .then(() => {
+    console.log("Connected to DB");
+  })
+  .catch((err) => {
+    res.render("error");
   });
+
+app.listen(PORT, () => {
+  console.log(`http://localhost:` + PORT);
 });
