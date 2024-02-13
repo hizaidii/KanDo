@@ -30,7 +30,7 @@ passport.use(
     {
       clientID: process.env.FB_ID,
       clientSecret: process.env.FB_SECRET,
-      callbackURL: "http://localhost:4444/auth/facebook/callback",
+      callbackURL: "https://kan-do-rose.vercel.app/auth/facebook/callback",
     },
     async function (accessToken, refreshToken, profile, cb) {
       console.log("Facebook Profile:", profile);
@@ -68,7 +68,7 @@ passport.use(
     {
       clientID: process.env.Google_ClientID,
       clientSecret: process.env.Google_SecretID,
-      callbackURL: "http://localhost:4444/auth/google/callback",
+      callbackURL: "https://kan-do-rose.vercel.app/auth/google/callback",
     },
     async function (accessToken, refreshToken, profile, cb) {
       // console.log(accessToken);
