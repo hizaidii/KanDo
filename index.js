@@ -86,7 +86,7 @@ hbs.registerHelper("isEqual", function (a, b, options) {
 
 // --> Database Connection
 mongoose
-  .connect(process.env.DB_URL)
+  .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Connected to DB");
   })
