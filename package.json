@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "A kanban board app that let's you create multiple boards, swimlanes, and tickets",
   "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Husain Zaidi",
