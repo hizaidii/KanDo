@@ -10,7 +10,7 @@ var droidY = window.innerHeight - 100;
 // Variables to keep track of mouse position and speed
 var mouseX = 0;
 var mouseY = 0;
-var speed = 0.5;
+var speed = 1;
 var accelMod = 2;
 
 function movement() {
