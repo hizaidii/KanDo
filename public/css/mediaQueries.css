@@ -93,8 +93,8 @@
   }
 
   .cta-btn {
-    padding: 8px 12px;
-    font-size: 13px;
+    /* padding: 8px 12px; */
+    /* font-size: 13px; */
   }
 
   /* APP PAGE */
@@ -102,25 +102,7 @@
     margin-left: 0px;
     padding: 0px 24px;
   }
-}
 
-@media (max-width: 1100px) {
-  .indexWrapper {
-    margin: 4px 48px;
-  }
-
-  .imageContainer img {
-    width: 180px;
-    margin-left: 0px;
-  }
-
-  #kanDo,
-  .blurbContainer h1 {
-    font-size: 36px;
-  }
-}
-
-@media (max-width: 900px) {
   .blurbContainer ul {
     display: none;
   }
@@ -162,6 +144,22 @@
   .errorInfo h3,
   .errorInfo h6 {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .indexWrapper {
+    margin: 4px 48px;
+  }
+
+  .imageContainer img {
+    width: 180px;
+    margin-left: 0px;
+  }
+
+  #kanDo,
+  .blurbContainer h1 {
+    font-size: 36px;
   }
 }
 
