@@ -8,7 +8,7 @@
   font-size: 14px;
   font-weight: 400;
   box-sizing: border-box;
-  /* line-height: 20px; */
+  scrollbar-width: none; /* This will hide the scrollbar in Firefox */
 }
 
 :root {
@@ -39,16 +39,15 @@
   --font-small-heading: 600 14px Inter, sans-serif;
 }
 
+/* For Chrome, Safari, and other WebKit browsers */
 ::-webkit-scrollbar {
   display: none;
-  /* width: 5px;
-  height: 8px;
-  background-color: #aaa; 
-  background: #6f6d6d; */
 }
 
 body {
   background-color: var(--bg-dark);
+  /* height: 100vh; */
+  /* min-height: fit-content; */
 }
 
 /* GLOBAL STYLE CLASSES */

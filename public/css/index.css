@@ -2,8 +2,10 @@
 body {
   background-image: url("../assets/index-bg1.png");
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-size: cover;
+  background-position: calc(center - 50px);
+  /* background-position: center; */
+  /* overflow: hidden; */
 }
 
 .IndexLogo img {
@@ -133,8 +135,10 @@ body {
 
 /* Watermark */
 body {
+  min-height: 100vh;
   padding-bottom: 60px;
   position: relative;
+  /* margin-bottom: 65px; */
 }
 
 .indexWatermark {
