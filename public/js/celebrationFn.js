@@ -7,7 +7,7 @@ celebrateButtons.forEach(function (button) {
     const swimlaneId = this.getAttribute("data-swimlane-id");
     const boardId = this.getAttribute("data-board-id");
 
-    const url = `/app/board/deleteTask?taskId=${taskId}&swimlaneId=${swimlaneId}&boardId=${boardId}`;
+    const url = `/app/board/completeTask?taskId=${taskId}&swimlaneId=${swimlaneId}&boardId=${boardId}`;
 
     axios
       .get(url)
@@ -47,5 +47,30 @@ celebrateButtons.forEach(function (button) {
     setTimeout(() => {
       // Clear method depends on how confetti is implemented
     }, 2000);
+  });
+});
+
+// Delete function without celebration
+const deleteBtn = document.querySelectorAll(".delete-task-btn");
+
+deleteBtn.forEach(function (button) {
+  button.addEventListener("click", function () {
+    console.log("Delete button clicked");
+    const taskId = this.getAttribute("data-task-id");
+    const swimlaneId = this.getAttribute("data-swimlane-id");
+    const boardId = this.getAttribute("data-board-id");
+    const url = `/app/board/deleteTask?taskId=${taskId}&swimlaneId=${swimlaneId}&boardId=${boardId}`;
+
+    axios
+      .get(url)
+      .then((response) => {
+        const taskCard = button.closest(".taskCard");
+        if (taskCard) {
+          taskCard.remove();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   });
 });

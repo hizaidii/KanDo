@@ -14,6 +14,7 @@ router.get("/moveTask", appController.getMoveTask);
 router.get("/board/deleteBoard", appController.getDeleteBoard);
 router.get("/board/deleteColumn", appController.getDeleteColumn);
 router.get("/board/deleteTask", appController.getDeleteTask);
+router.get("/board/completeTask", appController.getCompleteTask);
 router.post("/board/editBoard", appController.postEditBoard);
 router.post("/board/editSwimlane", appController.postEditSwimlane);
 router.post("/board/editTask", appController.postEditTask);

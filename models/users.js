@@ -13,7 +13,7 @@ const taskSchema = new Schema({
   },
   position: {
     type: Number,
-    default: 0, // Initialize to 0 or another appropriate value
+    default: 0,
   },
 });
 
@@ -40,7 +40,6 @@ const boardSchema = new Schema({
 const userSchema = new Schema({
   username: {
     type: String,
-    // required: true,
   },
   name: String,
   password: String,
@@ -54,10 +53,6 @@ const userSchema = new Schema({
     type: Number,
     default: 0,
   },
-  // currentTasks: {
-  //   type: Number,
-  //   default: 0,
-  // },
 
   FB_AccessToken: String,
   FB_ID: String,

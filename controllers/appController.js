@@ -224,8 +224,8 @@ module.exports.getDeleteBoard = async (req, res, next) => {
       }
     });
     //updating the deleted tasks count
-    user.deletedTasks = Number(user.deletedTasks) || 0;
-    user.deletedTasks += noOfTasks;
+    user.totalTasks = Number(user.totalTasks) || 0;
+    user.totalTasks -= noOfTasks;
 
     // deleting the board
     user.boards.pull({ _id: boardId });
@@ -246,8 +246,8 @@ module.exports.getDeleteColumn = async (req, res, next) => {
 
     //marking all tasks in this swimlane as deleted
     let noOfTasks = board.swimlanes.id(swimlaneId).tasks.length;
-    user.deletedTasks = Number(user.deletedTasks) || 0;
-    user.deletedTasks += noOfTasks;
+    user.totalTasks = Number(user.totalTasks) || 0;
+    user.totalTasks -= noOfTasks;
 
     // deleting the swimlane
     board.swimlanes.pull({ _id: swimlaneId });
@@ -261,6 +261,25 @@ module.exports.getDeleteColumn = async (req, res, next) => {
 
 // deleting a task
 module.exports.getDeleteTask = async (req, res, next) => {
+  const { taskId, swimlaneId, boardId } = req.query;
+  try {
+    let user = await User.findById(req.user._id);
+    let board = user.boards.id(boardId);
+    let swimlane = board.swimlanes.id(swimlaneId);
+    swimlane.tasks.pull({ _id: taskId });
+
+    user.totalTasks = Number(user.totalTasks) || 0;
+    user.totalTasks -= 1;
+
+    await user.save();
+    res.redirect("/app/board?boardId=" + boardId);
+  } catch (err) {
+    res.render("error", { err });
+  }
+};
+
+// completing a task
+module.exports.getCompleteTask = async (req, res, next) => {
   const { taskId, swimlaneId, boardId } = req.query;
   try {
     let user = await User.findById(req.user._id);
